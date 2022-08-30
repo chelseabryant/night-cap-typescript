@@ -30,7 +30,12 @@ export default function BarCart() {
             />
             <button onClick={onAddClick}>Add</button>
             {cartItems.map(item => (
-                <CartItem key={item} item={item} />
+                <CartItem
+                    key={item}
+                    item={item}
+                    setCartItems={setCartItems}
+                    cartItems={cartItems}
+                />
             ))}
         </div>
     )
