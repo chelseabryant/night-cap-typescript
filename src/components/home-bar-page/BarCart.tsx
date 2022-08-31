@@ -3,7 +3,7 @@ import CartItem from "./CartItem"
 
 export default function BarCart() {
     const [barCartItem, setBarCartItem] = useState<string>("")
-    const [cartItems, setCartItems] = useState<Array<string>>([])
+    const [cartItems, setCartItems] = useState<string[]>([])
 
     const updateBarCartItem = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setBarCartItem(e.target.value)
@@ -17,7 +17,6 @@ export default function BarCart() {
     const updateCartItems = (item: string): void => {
         if (item && !cartItems.includes(item)) setCartItems([...cartItems, item])
     }
-    console.log(cartItems)
 
     return (
         <div>
@@ -27,6 +26,8 @@ export default function BarCart() {
                 value={barCartItem}
                 placeholder="Enter home ingredient"
                 onChange={updateBarCartItem}
+                // onKeyDown is similar to a ternary with no 'else' statememt. If e.key equals 'Enter' then run onAddClick func.
+                onKeyDown={e => e.key === "Enter" && onAddClick()}
             />
             <button onClick={onAddClick}>Add</button>
             {cartItems.map(item => (

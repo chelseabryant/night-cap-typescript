@@ -8,7 +8,7 @@ type Props = {
 
 export default function CartItem({ item, setCartItems, cartItems }: Props) {
     const [editing, setEditing] = useState<boolean>(false)
-    const [editInput, setEditInput] = useState<string>("")
+    const [editInput, setEditInput] = useState<string>(item)
 
     const onDeleteClick = (): void => {
         let filteredCart = cartItems.filter(i => i !== item)
@@ -18,29 +18,24 @@ export default function CartItem({ item, setCartItems, cartItems }: Props) {
     const onEditClick = (): void => {
         setEditing(!editing)
 
-        // const updatedCartItems = cartItems.map(currentItem => {
-        //     if (currentItem === item) {
-        //         return editInput
-        //     } else {
-        //         return currentItem
-        //     }
-        // })
-        // setEditInput(updatedCartItems)
+        const updatedCartItems = cartItems.map(currentItem => {
+            return currentItem === item ? editInput : currentItem
+        })
+        setCartItems(updatedCartItems)
     }
 
-    const editingInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const editingItem = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setEditInput(e.target.value)
     }
-    console.log(editInput)
 
     return (
         <div>
             <li>
                 <input
-                    value={item}
+                    value={editInput}
                     className={editing ? "" : "unstyled-input"}
                     disabled={!editing}
-                    onChange={editingInput}
+                    onChange={editingItem}
                 />
                 <button onClick={onEditClick}>{editing ? "Save" : "Edit"}</button>
                 <button onClick={onDeleteClick}>Delete</button>

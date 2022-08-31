@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
+import { cocktailCategories } from "../../Data"
 
 export default function Homepage() {
     const [searchBar, setSearchBar] = useState<string>("")
@@ -10,8 +12,20 @@ export default function Homepage() {
     return (
         <div>
             <h1>Home Page</h1>
-            <input type="text" placeholder="Search for a cocktail!" onChange={updateInput} />
+            <input
+                type="text"
+                value={searchBar}
+                placeholder="Search for a cocktail!"
+                onChange={updateInput}
+            />
             <button>Search</button>
+            <ul>
+                {cocktailCategories.map(item => (
+                    <li key={item.title}>
+                        <Link to={item.path}>{item.title}</Link>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }
