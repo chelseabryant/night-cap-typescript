@@ -7,7 +7,7 @@ export default function Routes() {
     return (
         <AllRoutes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/cocktails" element={<CocktailsPage />} />
+            <Route path="/cocktails/:category" element={<CocktailsPage />} />
             <Route path="/homebar" element={<HomeBarPage />} />
         </AllRoutes>
     )

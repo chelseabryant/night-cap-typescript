@@ -17,7 +17,6 @@ export default function CocktailBuilder() {
     const updateIngredientList = (item: string): void => {
         if (item && !ingredientList.includes(item)) setIngredientList([...ingredientList, item])
     }
-    console.log(ingredientList)
 
     return (
         <div>

@@ -1,3 +1,5 @@
-export default function Interfaces () {
-    
+export interface ICocktail {
+    idDrink: string
+    strDrink: string
+    strDrinkThumb: string
 }

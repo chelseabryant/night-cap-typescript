@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "./BarCart.css"
 
 type Props = {
     item: string
