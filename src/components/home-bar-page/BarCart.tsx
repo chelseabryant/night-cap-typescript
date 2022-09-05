@@ -1,5 +1,6 @@
 import { useState } from "react"
 import CartItem from "./CartItem"
+import "./BarCart.css"
 
 export default function BarCart() {
     const [barCartItem, setBarCartItem] = useState<string>("")

@@ -7,5 +7,5 @@ export const cocktailCategories = [
     { title: "Rum", path: "/cocktails/rum" },
     { title: "Scotch", path: "/cocktails/scotch" },
     { title: "Brandy", path: "/cocktails/brandy" },
-    { title: "Spritz", path: "/cocktails/spritz" },
+    { title: "Spritz", path: "/cocktails/spritz?name=true" },
 ]

@@ -18,7 +18,9 @@ export default function Homepage() {
                 placeholder="Search for a cocktail!"
                 onChange={updateInput}
             />
-            <button>Search</button>
+            {/* <Link to={`/cocktails/${searchBar}?name=true`}> */}
+                <button>Search</button>
+            </Link>
             <ul>
                 {cocktailCategories.map(item => (
                     <li key={item.title}>

@@ -1,17 +1,19 @@
 import { cocktailCategories } from "../../Data"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient"
 import { ICocktail } from "../../interfaces"
+import "./CocktailsPage.css"
+import { getCocktailsByName } from "../../ajax/getCocktailsByName"
 
 export default function CocktailsPage() {
     const routeParams = useParams<string>()
     const [cocktails, setCocktails] = useState<ICocktail[]>([])
+    const queryParams = useSearchParams()
 
     const fetchData = async () => {
-        if (routeParams.category) {
+        // if (routeParams.category && !queryParams.get("name") === true) {
             const data = await getCocktailsByIngredient(routeParams.category)
-            console.log(data)
             setCocktails(data.drinks)
         }
     }
@@ -23,7 +25,7 @@ export default function CocktailsPage() {
     return (
         <div>
             {routeParams.category && (
-                <h2>{routeParams.category[0].toUpperCase() + routeParams.category.slice(1)}</h2>
+                <h1>{routeParams.category[0].toUpperCase() + routeParams.category.slice(1)}</h1>
             )}
             <ul>
                 {cocktailCategories.map(item => (
@@ -34,7 +36,10 @@ export default function CocktailsPage() {
             </ul>
 
             {cocktails.map(cocktail => (
-                <div key={cocktail.idDrink}>{cocktail.strDrink}</div>
+                <div>
+                    <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
+                    <img src={cocktail.strDrinkThumb} alt="" className="cocktail-photo" />
+                </div>
             ))}
         </div>
     )
