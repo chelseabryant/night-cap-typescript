@@ -9,12 +9,17 @@ import { getCocktailsByName } from "../../ajax/getCocktailsByName"
 export default function CocktailsPage() {
     const routeParams = useParams<string>()
     const [cocktails, setCocktails] = useState<ICocktail[]>([])
-    const queryParams = useSearchParams()
+    const [queryParams] = useSearchParams()
 
     const fetchData = async () => {
-        // if (routeParams.category && !queryParams.get("name") === true) {
-            const data = await getCocktailsByIngredient(routeParams.category)
-            setCocktails(data.drinks)
+        if (routeParams.category) {
+            if (queryParams.get("name") === "true") {
+                const data = await getCocktailsByName(routeParams.category)
+                setCocktails(data.drinks)
+            } else {
+                const data = await getCocktailsByIngredient(routeParams.category)
+                setCocktails(data.drinks)
+            }
         }
     }
 

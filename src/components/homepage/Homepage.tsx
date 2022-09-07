@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { cocktailCategories } from "../../Data"
+import "./Homepage.css"
 
 export default function Homepage() {
     const [searchBar, setSearchBar] = useState<string>("")
@@ -18,13 +19,16 @@ export default function Homepage() {
                 placeholder="Search for a cocktail!"
                 onChange={updateInput}
             />
-            {/* <Link to={`/cocktails/${searchBar}?name=true`}> */}
+            <Link to={`/cocktails/${searchBar}?name=true`}>
                 <button>Search</button>
             </Link>
             <ul>
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
-                        <Link to={item.path}>{item.title}</Link>
+                        <Link to={item.path}>
+                            <img src={item.photo} alt="" className="cocktail-image" />
+                            {item.title}
+                        </Link>
                     </li>
                 ))}
             </ul>
