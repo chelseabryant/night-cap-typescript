@@ -2,14 +2,14 @@ import { cocktailCategories } from "../../Data"
 import { Link, useParams, useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient"
-import { ICocktail, IFullCocktail } from "../../interfaces"
+import { ICocktail } from "../../interfaces"
 import "./CocktailsPage.css"
 import { getCocktailsByName } from "../../ajax/getCocktailsByName"
 import CocktailInfo from "./CocktailInfo"
 
 export default function CocktailsPage() {
     const routeParams = useParams<string>()
-    const [cocktails, setCocktails] = useState<ICocktail[] | IFullCocktail[]>([])
+    const [cocktails, setCocktails] = useState<ICocktail[]>([])
     const [queryParams] = useSearchParams()
 
     const fetchFullData = async (name: string) => {
@@ -25,7 +25,7 @@ export default function CocktailsPage() {
             } else {
                 const data = await getCocktailsByIngredient(routeParams.category)
                 const fullData = await Promise.all(
-                    data.drinks.map(async (drink: ICocktail | IFullCocktail) => {
+                    data.drinks.map(async (drink: ICocktail) => {
                         const fetchResponse = await fetchFullData(drink.strDrink)
                         return fetchResponse.drinks[0]
                     })

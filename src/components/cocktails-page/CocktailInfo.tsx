@@ -1,9 +1,9 @@
 import { useState } from "react"
-import { ICocktail, IFullCocktail } from "../../interfaces"
+import { ICocktail } from "../../interfaces"
 import Modal from "../modal/Modal"
 
 type Props = {
-    cocktail: IFullCocktail | ICocktail
+    cocktail: ICocktail
 }
 
 export default function CocktailInfo({ cocktail }: Props) {
@@ -26,6 +26,7 @@ export default function CocktailInfo({ cocktail }: Props) {
                     <li></li>
                 </ul>
                 <p>Glass: {cocktail.strGlass}</p>
+                <p>{cocktail.strInstructions}</p>
             </Modal>
         </div>
     )

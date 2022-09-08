@@ -1,10 +1,6 @@
-export interface ICocktail {
-    idDrink: string
-    strDrink: string
-    strDrinkThumb: string
-}
 
-export interface IFullCocktail {
+
+export interface ICocktail {
 dateModified: string
 idDrink: string
 strAlcoholic: string
