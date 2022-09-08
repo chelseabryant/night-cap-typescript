@@ -2,14 +2,20 @@ import { cocktailCategories } from "../../Data"
 import { Link, useParams, useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient"
-import { ICocktail } from "../../interfaces"
+import { ICocktail, IFullCocktail } from "../../interfaces"
 import "./CocktailsPage.css"
 import { getCocktailsByName } from "../../ajax/getCocktailsByName"
+import CocktailInfo from "./CocktailInfo"
 
 export default function CocktailsPage() {
     const routeParams = useParams<string>()
-    const [cocktails, setCocktails] = useState<ICocktail[]>([])
+    const [cocktails, setCocktails] = useState<ICocktail[] | IFullCocktail[]>([])
     const [queryParams] = useSearchParams()
+
+    const fetchFullData = async (name: string) => {
+        const data = await getCocktailsByName(name)
+        return data
+    }
 
     const fetchData = async () => {
         if (routeParams.category) {
@@ -18,7 +24,14 @@ export default function CocktailsPage() {
                 setCocktails(data.drinks)
             } else {
                 const data = await getCocktailsByIngredient(routeParams.category)
-                setCocktails(data.drinks)
+                const fullData = await Promise.all(
+                    data.drinks.map(async (drink: ICocktail | IFullCocktail) => {
+                        const fetchResponse = await fetchFullData(drink.strDrink)
+                        return fetchResponse.drinks[0]
+                    })
+                )
+                setCocktails(fullData)
+                console.log(fullData)
             }
         }
     }
@@ -41,10 +54,7 @@ export default function CocktailsPage() {
             </ul>
 
             {cocktails.map(cocktail => (
-                <div>
-                    <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
-                    <img src={cocktail.strDrinkThumb} alt="" className="cocktail-photo" />
-                </div>
+                <CocktailInfo key={cocktail.idDrink} cocktail={cocktail} />
             ))}
         </div>
     )
