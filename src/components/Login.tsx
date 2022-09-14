@@ -1,17 +1,16 @@
-import { type } from "@testing-library/user-event/dist/type"
 import { useState } from "react"
 import { authenticate, createAccount } from "./utils/authenticate"
 
 type Props = {
     authenticated: boolean
+    setAuthenticated: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function Login({ authenticated }: Props) {
+export default function Login({ authenticated, setAuthenticated }: Props): JSX.Element {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [isCreating, setIsCreating] = useState<boolean>(true)
-    const [loginMessage, setLoginMessage] = useState<boolean>(false)
-    const [errorMessage, setErrorMessage] = useState(false)
+    const [errorMessage, setErrorMessage] = useState<boolean>(false)
 
     const emailInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setEmail(e.target.value)
@@ -25,13 +24,13 @@ export default function Login({ authenticated }: Props) {
         e.preventDefault()
         if (isCreating) {
             createAccount(email, password)
-            setLoginMessage(true)
+            setAuthenticated(true)
         } else {
             const isAuthenticated: boolean = authenticate(email, password)
             if (isAuthenticated) {
-                setLoginMessage(!loginMessage)
+                setAuthenticated(true)
             } else {
-                setErrorMessage(!errorMessage)
+                setErrorMessage(true)
             }
         }
     }
