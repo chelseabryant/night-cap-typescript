@@ -1,7 +1,12 @@
+import { type } from "@testing-library/user-event/dist/type"
 import { useState } from "react"
 import { authenticate, createAccount } from "./utils/authenticate"
 
-export default function Login() {
+type Props = {
+    authenticated: boolean
+}
+
+export default function Login({ authenticated }: Props) {
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [isCreating, setIsCreating] = useState<boolean>(true)
@@ -24,16 +29,16 @@ export default function Login() {
         } else {
             const isAuthenticated: boolean = authenticate(email, password)
             if (isAuthenticated) {
-                setLoginMessage(true)
+                setLoginMessage(!loginMessage)
             } else {
-                setErrorMessage(true)
+                setErrorMessage(!errorMessage)
             }
         }
     }
 
     return (
         <>
-            {loginMessage ? (
+            {authenticated ? (
                 "Thank you for logging in!"
             ) : (
                 <form onSubmit={login}>
