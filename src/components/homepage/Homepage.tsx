@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
-import { cocktailCategories } from "../../Data"
+import { cocktailCategories } from "../Data"
 import "./Homepage.css"
 
 export default function Homepage() {

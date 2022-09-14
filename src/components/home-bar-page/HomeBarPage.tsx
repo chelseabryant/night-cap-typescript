@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { cocktailCategories } from "../../Data"
+import { cocktailCategories } from "../Data"
 import BarCart from "./BarCart"
 import CocktailBuilder from "./CocktailBuilder"
 

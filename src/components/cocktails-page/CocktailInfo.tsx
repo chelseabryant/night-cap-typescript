@@ -53,8 +53,8 @@ export default function CocktailInfo({ cocktail }: Props) {
             <Modal isOpened={isOpened} onClose={() => setIsOpened(false)}>
                 <h2>{cocktail.strDrink}</h2>
                 <img src={cocktail.strDrinkThumb} alt="" className="cocktail-photo" />
-                <h5>Ingredients</h5>
                 <ul>
+                    <h4>Ingredients</h4>
                     {ingredients.map(item => (
                         <li>{item.ingredient}</li>
                     ))}

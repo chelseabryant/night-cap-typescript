@@ -1,4 +1,4 @@
-import { cocktailCategories } from "../../Data"
+import { cocktailCategories } from "../Data"
 import { Link, useParams, useSearchParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getCocktailsByIngredient } from "../../ajax/getCocktailsByIngredient"
