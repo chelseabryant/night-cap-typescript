@@ -16,4 +16,5 @@ export function createAccount(email: string, password: string) {
     var salt = bcrypt.genSaltSync(10)
     var hash = bcrypt.hashSync(password, salt)
     localStorage.setItem(email, hash)
+    localStorage.setItem('user', email)
 }

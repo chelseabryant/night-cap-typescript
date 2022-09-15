@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import Login from "./Login"
 import Modal from "./modal/Modal"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 export default function Header() {
     const [isOpened, setIsOpened] = useState<boolean>(false)
@@ -15,7 +15,7 @@ export default function Header() {
     return (
         <div>
             <Link to="/">Night Cap</Link>
-            <Link to="/homebar">My Home Bar</Link>
+            {authenticated ? <Link to="/homebar">My Home Bar</Link> : <p>Sign in to use Homebar</p>}
             {authenticated ? (
                 <button onClick={logout}>Log out</button>
             ) : (
