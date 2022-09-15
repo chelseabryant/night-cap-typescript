@@ -1,4 +1,8 @@
-
+export interface IPartialCocktail {
+    idDrink: string
+    strDrink: string
+    strDrinkThumb: string
+}
 
 export interface ICocktail {
 dateModified: string

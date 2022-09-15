@@ -31,7 +31,6 @@ export default function CocktailsPage() {
                     })
                 )
                 setCocktails(fullData)
-                console.log(fullData)
             }
         }
     }

@@ -35,7 +35,6 @@ export default function CocktailInfo({ cocktail }: Props) {
         setIngredients(allIngredients)
         setMeasures(allMeasures)
     }
-    console.log(ingredients)
 
     useEffect(() => {
         formatData()
@@ -56,11 +55,11 @@ export default function CocktailInfo({ cocktail }: Props) {
                 <ul>
                     <h4>Ingredients</h4>
                     {ingredients.map(item => (
-                        <li>{item.ingredient}</li>
+                        <li key={item.idDrink}>{item.ingredient}</li>
                     ))}
                 </ul>
                 {measures.map(item => (
-                    <div>{item.measure}</div>
+                    <div key={item.idDrink}>{item.measure}</div>
                 ))}
                 <p>Glass: {cocktail.strGlass}</p>
                 <p>{cocktail.strInstructions}</p>

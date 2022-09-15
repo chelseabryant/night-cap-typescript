@@ -1,7 +1,11 @@
 import { useState } from "react"
 import Ingredient from "./Ingredient"
 
-export default function CocktailBuilder() {
+type Props = {
+    searchByIngredients: (ingredientList: string[]) => void
+}
+
+export default function CocktailBuilder({ searchByIngredients }: Props) {
     const [ingredient, setIngredient] = useState<string>("")
     const [ingredientList, setIngredientList] = useState<string[]>([])
 
@@ -18,6 +22,10 @@ export default function CocktailBuilder() {
         if (item && !ingredientList.includes(item)) setIngredientList([...ingredientList, item])
     }
 
+    const search = () => {
+        searchByIngredients(ingredientList)
+    }
+
     return (
         <div>
             <h4>Search for cocktails by ingredients</h4>
@@ -29,6 +37,7 @@ export default function CocktailBuilder() {
                 onKeyDown={e => e.key === "Enter" && onAddClick()}
             />
             <button onClick={onAddClick}>Add</button>
+            <button onClick={search}>Shake it up!</button>
             {ingredientList.map(item => (
                 <Ingredient
                     key={item}
