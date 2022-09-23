@@ -40,21 +40,22 @@ export default function CocktailsPage() {
     }, [routeParams])
 
     return (
-        <div>
+        <div className="container">
             {routeParams.category && (
                 <h1>{routeParams.category[0].toUpperCase() + routeParams.category.slice(1)}</h1>
             )}
-            <ul>
+            <ul className="menu-bar">
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
                         <Link to={item.path}>{item.title}</Link>
                     </li>
                 ))}
             </ul>
-
-            {cocktails.map(cocktail => (
-                <CocktailInfo key={cocktail.idDrink} cocktail={cocktail} />
-            ))}
+            <div className="cocktails">
+                {cocktails.map(cocktail => (
+                    <CocktailInfo key={cocktail.idDrink} cocktail={cocktail} />
+                ))}
+            </div>
         </div>
     )
 }

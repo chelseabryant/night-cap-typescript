@@ -7,6 +7,7 @@ import CocktailInfo from "../cocktails-page/CocktailInfo"
 import { cocktailCategories } from "../Data"
 import BarCart from "./BarCart"
 import CocktailBuilder from "./CocktailBuilder"
+import "./HomeBarPage.css"
 
 interface ICocktailHash {
     [cocktailId: string]: number
@@ -47,20 +48,22 @@ export default function HomeBarPage() {
     }
 
     return (
-        <div>
+        <div className="container">
             <h1>Home Bar</h1>
-            <ul>
+            <ul className="menu-bar">
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
                         <Link to={item.path}>{item.title}</Link>
                     </li>
                 ))}
             </ul>
-            <BarCart />
-            <CocktailBuilder searchByIngredients={searchByIngredients} />
-            {cocktails.map(cocktail => (
-                <CocktailInfo key={cocktail.idDrink} cocktail={cocktail} />
-            ))}
+            <div className="page-grid">
+                <BarCart />
+                <CocktailBuilder searchByIngredients={searchByIngredients} />
+                {cocktails.map(cocktail => (
+                    <CocktailInfo key={cocktail.idDrink} cocktail={cocktail} />
+                ))}
+            </div>
         </div>
     )
 }

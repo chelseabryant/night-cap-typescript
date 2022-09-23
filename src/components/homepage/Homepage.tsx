@@ -11,7 +11,7 @@ export default function Homepage() {
     }
 
     return (
-        <div>
+        <div className="container">
             <h1>Home Page</h1>
             <input
                 type="text"
@@ -22,16 +22,16 @@ export default function Homepage() {
             <Link to={`/cocktails/${searchBar}?name=true`}>
                 <button>Search</button>
             </Link>
-            <ul>
+            <div className="main-menu">
                 {cocktailCategories.map(item => (
-                    <li key={item.title}>
+                    <ul className="link" key={item.title}>
                         <Link to={item.path}>
                             <img src={item.photo} alt="" className="cocktail-image" />
-                            {item.title}
+                            <p>{item.title}</p>
                         </Link>
-                    </li>
+                    </ul>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }

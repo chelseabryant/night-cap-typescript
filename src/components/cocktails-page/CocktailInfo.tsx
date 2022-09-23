@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { ICocktail } from "../../interfaces"
 import Modal from "../modal/Modal"
+import "./CocktailInfo.css"
 
 type Props = {
     cocktail: ICocktail
@@ -42,26 +43,34 @@ export default function CocktailInfo({ cocktail }: Props) {
 
     return (
         <div>
-            <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
             <img
                 src={cocktail.strDrinkThumb}
                 alt=""
                 className="cocktail-photo"
                 onClick={() => setIsOpened(true)}
             />
+            <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
             <Modal isOpened={isOpened} onClose={() => setIsOpened(false)}>
                 <h2>{cocktail.strDrink}</h2>
                 <img src={cocktail.strDrinkThumb} alt="" className="cocktail-photo" />
-                <ul>
-                    <h4>Ingredients</h4>
-                    {ingredients.map(item => (
-                        <li key={item.idDrink}>{item.ingredient}</li>
-                    ))}
-                </ul>
-                {measures.map(item => (
-                    <div key={item.idDrink}>{item.measure}</div>
-                ))}
-                <p>Glass: {cocktail.strGlass}</p>
+                <h4 className="ingredient-title">Ingredients</h4>
+                <div className="ingredients-measurements">
+                    <ul>
+                        {ingredients.map(item => (
+                            <li className="ingredients" key={item.idDrink}>
+                                {item.ingredient}
+                            </li>
+                        ))}
+                    </ul>
+                    <ul>
+                        {measures.map(item => (
+                            <div className="measurements" key={item.idDrink}>
+                                {item.measure}
+                            </div>
+                        ))}
+                    </ul>
+                </div>
+                <p className="glass">Glass: {cocktail.strGlass}</p>
                 <p>{cocktail.strInstructions}</p>
             </Modal>
         </div>

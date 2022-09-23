@@ -1,0 +1,15 @@
+.ingredient-title {
+    /* text-align: left; */
+}
+
+.ingredients-measurements {
+    display: flex;
+}
+
+.ingredients {
+    text-align: left;
+}
+
+.glass {
+    text-align: left;
+}

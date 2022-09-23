@@ -1,7 +1,7 @@
 .modal {
     width: 400px;
     border: 1px solid;
-    border-radius: 8px;
+    border-radius: 10px;
 } 
 
 .modal::backdrop {

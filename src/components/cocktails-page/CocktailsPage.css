@@ -1,4 +1,23 @@
 .cocktail-photo {
     height: 200px;
     width: 200px;
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0px auto;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content:space-evenly;
+    font-size: 20px;
+}
+
+.cocktails {
+    display: grid;
+   grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
 }

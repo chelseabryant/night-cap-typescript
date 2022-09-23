@@ -1,0 +1,33 @@
+.header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    align-items: bottom;
+    padding-left: 20px;
+}
+
+.header-right {
+    display: flex;
+    align-items: baseline;
+    padding-right: 20px;
+}
+
+.title {
+    font-size: 60px;
+    padding: 8px;
+}
+
+.homebar {
+    font-size: 30px;
+    padding: 15px;
+
+}
+
+.disabled-homebar {
+    font-size: 25px;
+    padding: 15px;
+}
