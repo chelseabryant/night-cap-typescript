@@ -7,14 +7,22 @@ type Props = {
     cocktail: ICocktail
 }
 
+interface IIngredient {
+    ingredient: string
+}
+
+interface IMeasure {
+    measure: string
+}
+
 export default function CocktailInfo({ cocktail }: Props) {
     const [isOpened, setIsOpened] = useState<boolean>(false)
-    const [ingredients, setIngredients] = useState<any[]>([])
-    const [measures, setMeasures] = useState<any[]>([])
+    const [ingredients, setIngredients] = useState<IIngredient[]>([])
+    const [measures, setMeasures] = useState<IMeasure[]>([])
 
     const formatData = () => {
-        const allIngredients = []
-        const allMeasures = []
+        const allIngredients: IIngredient[] = []
+        const allMeasures: IMeasure[] = []
         for (let i: number = 1; i < 16; i++) {
             // @ts-ignore
             if (cocktail[`strIngredient${i}`]) {
@@ -56,15 +64,15 @@ export default function CocktailInfo({ cocktail }: Props) {
                 <h4 className="ingredient-title">Ingredients</h4>
                 <div className="ingredients-measurements">
                     <ul>
-                        {ingredients.map(item => (
-                            <li className="ingredients" key={item.idDrink}>
+                        {ingredients.map((item, i) => (
+                            <li className="ingredients" key={`${item.ingredient}${i}`}>
                                 {item.ingredient}
                             </li>
                         ))}
                     </ul>
                     <ul>
-                        {measures.map(item => (
-                            <div className="measurements" key={item.idDrink}>
+                        {measures.map((item, i) => (
+                            <div className="measurements" key={`${item.measure}${i}`}>
                                 {item.measure}
                             </div>
                         ))}

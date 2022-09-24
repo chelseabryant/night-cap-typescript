@@ -1,24 +1,53 @@
-.header {
+.header-wave {
     width: 100%;
-    height: 100px;
+    height: 200px;
+    position: relative;
+    /* background-color: hsl(60, 95%, 74%); */
+    /* background-image: url(https://images.unsplash.com/photo-1533905203314-1e0d73d74502?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80); */
+   background-image: url(https://img.freepik.com/free-vector/set-colorful-cocktails-bright-colors-citrus-berries-toppings_1268-15113.jpg?w=1480&t=st=1663963648~exp=1663964248~hmac=f4b2f08edca2ea0b17f3edc66c74196845e4490757d8ad0be3c15eb7011e43cf);
+}
+
+.header {
     display: flex;
     justify-content: space-between;
+    padding: 16px;
+
 }
 
-.header-left {
-    align-items: bottom;
-    padding-left: 20px;
+.custom-shape-divider-bottom-1663960192 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
 }
+
+.custom-shape-divider-bottom-1663960192 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px;
+}
+
+.custom-shape-divider-bottom-1663960192 .shape-fill {
+    fill: rgb(254, 186, 238);
+    
+}
+
 
 .header-right {
-    display: flex;
-    align-items: baseline;
-    padding-right: 20px;
+    display: flex;  
+}
+
+.search-bar {
+    font-size: 15px;
 }
 
 .title {
     font-size: 60px;
-    padding: 8px;
+    font-family: 'Bungee Spice', cursive;
+
 }
 
 .homebar {
@@ -29,5 +58,9 @@
 
 .disabled-homebar {
     font-size: 25px;
-    padding: 15px;
+}
+
+.button {
+    font-size: 15px;
+    height: max-content;
 }

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { authenticate, createAccount } from "./utils/authenticate"
+import "./Login.css"
 
 type Props = {
     authenticated: boolean
@@ -36,21 +37,30 @@ export default function Login({ authenticated, setAuthenticated }: Props): JSX.E
     }
 
     return (
-        <>
+        <div className="login">
             {authenticated ? (
                 "Thank you for logging in!"
             ) : (
                 <form onSubmit={login}>
                     <h2>{isCreating ? "Create an account" : "Sign in"}</h2>
                     <p>{errorMessage ? "Input invalid" : ""}</p>
-                    <input placeholder="Enter email" onChange={emailInput} />
-                    <input type="password" placeholder="Enter password" onChange={passwordInput} />
-                    <button>{isCreating ? "Create account" : "Sign in"}</button>
-                    <button type="button" onClick={() => setIsCreating(!isCreating)}>
+                    <input className="login" placeholder="Enter email" onChange={emailInput} />
+                    <input
+                        className="login"
+                        type="password"
+                        placeholder="Enter password"
+                        onChange={passwordInput}
+                    />
+                    <button className="button">{isCreating ? "Create account" : "Sign in"}</button>
+                    <button
+                        className="button"
+                        type="button"
+                        onClick={() => setIsCreating(!isCreating)}
+                    >
                         {isCreating ? "Already have an account?" : "Need to create an account?"}
                     </button>
                 </form>
             )}
-        </>
+        </div>
     )
 }

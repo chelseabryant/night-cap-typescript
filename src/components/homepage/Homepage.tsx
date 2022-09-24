@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { cocktailCategories } from "../Data"
 import "./Homepage.css"
+import { FaPlus } from "react-icons/fa"
 
 export default function Homepage() {
     const [searchBar, setSearchBar] = useState<string>("")
@@ -12,26 +13,28 @@ export default function Homepage() {
 
     return (
         <div className="container">
-            <h1>Home Page</h1>
             <input
+                className="search-bar"
                 type="text"
                 value={searchBar}
                 placeholder="Search for a cocktail!"
                 onChange={updateInput}
             />
             <Link to={`/cocktails/${searchBar}?name=true`}>
-                <button>Search</button>
+                <button className="search-bar">
+                    <FaPlus />
+                </button>
             </Link>
-            <div className="main-menu">
+            <ul className="main-menu">
                 {cocktailCategories.map(item => (
-                    <ul className="link" key={item.title}>
+                    <li key={item.title}>
                         <Link to={item.path}>
                             <img src={item.photo} alt="" className="cocktail-image" />
                             <p>{item.title}</p>
                         </Link>
-                    </ul>
+                    </li>
                 ))}
-            </div>
+            </ul>
         </div>
     )
 }

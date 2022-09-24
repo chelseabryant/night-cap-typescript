@@ -3,18 +3,21 @@
     border-radius: 10px;
 }
 
+
 .container {
     max-width: 1440px;
     margin: 0px auto;
+    padding: 0 15px;
 }
 
 .main-menu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 16px;
     text-align: center;
 }
 
+
+
 .link {
-    margin: 30px;
 }

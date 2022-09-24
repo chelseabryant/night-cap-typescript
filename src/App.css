@@ -2,10 +2,13 @@
     -webkit-box-sizing: border-box; 
     -moz-box-sizing: border-box; 
     box-sizing: border-box;
-    /* background: linear-gradient(to left bottom, grey, purple); */
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+
   }
   .App {
-    /* background: linear-gradient(to bottom, rgb(50, 49, 49), grey); */
-    /* background-image: url(https://images.unsplash.com/photo-1597290282695-edc43d0e7129?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1475&q=80); */
+    background-color: rgb(254, 186, 238);
+    min-height: 100vh;
     
   }

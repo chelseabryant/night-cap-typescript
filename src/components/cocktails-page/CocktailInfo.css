@@ -8,6 +8,8 @@
 
 .ingredients {
     text-align: left;
+    list-style-type: disc;
+    list-style-position: inside;
 }
 
 .glass {
