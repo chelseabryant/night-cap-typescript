@@ -1,9 +1,10 @@
 .ingredient-title {
-    /* text-align: left; */
+ margin-bottom: 16px;
 }
 
 .ingredients-measurements {
     display: flex;
+    margin-bottom: 16px;
 }
 
 .ingredients {
@@ -14,4 +15,5 @@
 
 .glass {
     text-align: left;
+    margin-bottom: 16px;
 }

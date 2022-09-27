@@ -42,7 +42,9 @@ export default function CocktailsPage() {
     return (
         <div className="container">
             {routeParams.category && (
-                <h1>{routeParams.category[0].toUpperCase() + routeParams.category.slice(1)}</h1>
+                <h1 className="liquor-name">
+                    {routeParams.category[0].toUpperCase() + routeParams.category.slice(1)}
+                </h1>
             )}
             <ul className="menu-bar">
                 {cocktailCategories.map(item => (

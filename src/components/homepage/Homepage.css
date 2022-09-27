@@ -13,11 +13,7 @@
 .main-menu {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+    gap: 80px;
     text-align: center;
 }
 
-
-
-.link {
-}
