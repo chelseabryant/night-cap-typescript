@@ -13,24 +13,26 @@ export default function Homepage() {
 
     return (
         <div className="container">
-            <input
-                className="search-bar"
-                type="text"
-                value={searchBar}
-                placeholder="Search for a cocktail!"
-                onChange={updateInput}
-            />
-            <Link to={`/cocktails/${searchBar}?name=true`}>
-                <button className="search-bar">
-                    <FaPlus />
-                </button>
-            </Link>
+            <div className="button-inside-input">
+                <input
+                    className="search-bar"
+                    type="text"
+                    value={searchBar}
+                    placeholder="Search for a cocktail!"
+                    onChange={updateInput}
+                />
+                <Link to={`/cocktails/${searchBar}?name=true`}>
+                    <button className="search-bar">
+                        <FaPlus />
+                    </button>
+                </Link>
+            </div>
             <ul className="main-menu">
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
-                        <Link to={item.path}>
+                        <Link className="title-link" to={item.path}>
                             <img src={item.photo} alt="" className="cocktail-image" />
-                            <p>{item.title}</p>
+                            <p className="item-title">{item.title}</p>
                         </Link>
                     </li>
                 ))}

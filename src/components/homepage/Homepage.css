@@ -17,3 +17,20 @@
     text-align: center;
 }
 
+.button-inside-input {
+    position: relative;
+}
+
+.search-bar {
+    margin-bottom: 16px;
+    font-size: 15px;
+}
+
+.item-title {
+    font-size: larger;
+    color: black;
+}
+
+.title-link {
+    text-decoration: none;
+}

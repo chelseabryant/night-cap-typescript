@@ -40,14 +40,11 @@
     display: flex;  
 }
 
-.search-bar {
-    font-size: 15px;
-}
 
 .title {
     font-size: 60px;
-    font-family: 'Bungee Spice', cursive;
-
+    /* font-family: 'Bungee Spice', cursive; */
+    font-family: 'Inter Tight', sans-serif;
 }
 
 .homebar {
