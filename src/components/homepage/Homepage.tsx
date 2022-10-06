@@ -30,7 +30,7 @@ export default function Homepage() {
             <ul className="main-menu">
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
-                        <Link className="title-link" to={item.path}>
+                        <Link to={item.path}>
                             <img src={item.photo} alt="" className="cocktail-image" />
                             <p className="item-title">{item.title}</p>
                         </Link>

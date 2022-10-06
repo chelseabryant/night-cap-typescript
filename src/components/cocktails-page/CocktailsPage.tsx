@@ -49,7 +49,9 @@ export default function CocktailsPage() {
             <ul className="menu-bar">
                 {cocktailCategories.map(item => (
                     <li key={item.title}>
-                        <Link to={item.path}>{item.title}</Link>
+                        <Link className="menu-items" to={item.path}>
+                            {item.title}
+                        </Link>
                     </li>
                 ))}
             </ul>
