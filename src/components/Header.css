@@ -2,7 +2,6 @@
     width: 100%;
     height: 200px;
     position: relative;
-    /* background-color: hsl(60, 95%, 74%); */
     /* background-image: url(https://images.unsplash.com/photo-1533905203314-1e0d73d74502?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80); */
    background-image: url(https://img.freepik.com/free-vector/set-colorful-cocktails-bright-colors-citrus-berries-toppings_1268-15113.jpg?w=1480&t=st=1663963648~exp=1663964248~hmac=f4b2f08edca2ea0b17f3edc66c74196845e4490757d8ad0be3c15eb7011e43cf);
 }
@@ -31,13 +30,15 @@
 }
 
 .custom-shape-divider-bottom-1663960192 .shape-fill {
-    /* fill: rgb(254, 186, 238); */
     fill: rgb(254, 248, 202);
 }
 
 
 .header-right {
-    display: flex;  
+    height: max-content;
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
 }
 
 
@@ -46,20 +47,27 @@
     text-decoration: underline;
     font-family: 'Pacifico', cursive;
     color: rgba(11, 68, 0, 0.81);
-    /* color: rgba(164, 0, 148, 0.819); */
 }
 
 .homebar {
     font-size: 30px;
-    padding: 15px;
-
+    padding-right: 16px;
+    color: black;
+    text-decoration: underline;
 }
 
 .disabled-homebar {
     font-size: 25px;
+    color: black;
+    padding-right: 16px;
 }
 
 .button {
-    font-size: 15px;
+    font-size: 16px;
     height: max-content;
+    background-color: rgb(253, 243, 169);
+    outline: none;
+    border: 1px grey solid;
+    padding: 8px 24px;
+    border-radius: 4px;
 }
