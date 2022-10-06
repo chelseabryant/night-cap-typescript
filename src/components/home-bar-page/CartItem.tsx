@@ -38,8 +38,12 @@ export default function CartItem({ item, setCartItems, cartItems }: Props) {
                     disabled={!editing}
                     onChange={editingItem}
                 />
-                <button onClick={onEditClick}>{editing ? "Save" : "Edit"}</button>
-                <button onClick={onDeleteClick}>Delete</button>
+                <button className="homebar-buttons" onClick={onEditClick}>
+                    {editing ? "Save" : "Edit"}
+                </button>
+                <button className="homebar-buttons" onClick={onDeleteClick}>
+                    Delete
+                </button>
             </li>
         </div>
     )

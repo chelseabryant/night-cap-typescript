@@ -14,7 +14,9 @@ export default function Ingredient({ item, ingredientList, setIngredientList }: 
         <div>
             <li>
                 <input value={item} className="unstyled-input" disabled={true} />
-                <button onClick={onDeleteClick}>Delete</button>
+                <button className="homebar-buttons" onClick={onDeleteClick}>
+                    Delete
+                </button>
             </li>
         </div>
     )

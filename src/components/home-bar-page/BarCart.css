@@ -2,3 +2,25 @@
     border: none;
     background-color: white;
 }
+
+.plus-inside-input {
+    position: relative;
+    margin-bottom: 16px;
+    font-size: 15px;
+    width: 200px;
+   
+}
+
+.ingredint-bar-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homebar-buttons {
+    background-color: rgb(253, 243, 169);
+    outline: none;
+    border: 1px grey solid;
+    padding: 4px;
+    border-radius: 3px;
+}

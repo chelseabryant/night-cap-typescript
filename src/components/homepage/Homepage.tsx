@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { cocktailCategories } from "../Data"
 import "./Homepage.css"
-import { FaPlus } from "react-icons/fa"
+import { FaSearch } from "react-icons/fa"
 
 export default function Homepage() {
     const [searchBar, setSearchBar] = useState<string>("")
@@ -22,8 +22,8 @@ export default function Homepage() {
                     onChange={updateInput}
                 />
                 <Link to={`/cocktails/${searchBar}?name=true`}>
-                    <button className="search-bar">
-                        <FaPlus />
+                    <button className="search-button">
+                        <FaSearch />
                     </button>
                 </Link>
             </div>

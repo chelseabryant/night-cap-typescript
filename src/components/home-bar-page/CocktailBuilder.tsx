@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Ingredient from "./Ingredient"
+import { RiAddFill } from "react-icons/ri"
 
 type Props = {
     searchByIngredients: (ingredientList: string[]) => void
@@ -29,15 +30,24 @@ export default function CocktailBuilder({ searchByIngredients }: Props) {
     return (
         <div>
             <h4>Search for cocktails by ingredients</h4>
-            <input
-                type="text"
-                value={ingredient}
-                placeholder="Add ingredient"
-                onChange={updateIngredients}
-                onKeyDown={e => e.key === "Enter" && onAddClick()}
-            />
-            <button onClick={onAddClick}>Add</button>
-            <button onClick={search}>Shake it up!</button>
+            <div className="ingredint-bar-align">
+                <div className="plus-inside-input">
+                    <input
+                        className="search-bar"
+                        type="text"
+                        value={ingredient}
+                        placeholder="Add ingredient"
+                        onChange={updateIngredients}
+                        onKeyDown={e => e.key === "Enter" && onAddClick()}
+                    />
+                    <button className="search-button" onClick={onAddClick}>
+                        <RiAddFill />
+                    </button>
+                </div>
+                <button className="homebar-buttons" onClick={search}>
+                    Shake it up!
+                </button>
+            </div>
             {ingredientList.map(item => (
                 <Ingredient
                     key={item}
