@@ -52,14 +52,17 @@
 .homebar {
     font-size: 30px;
     padding-right: 16px;
-    color: black;
+    color: #0000EE;
     text-decoration: underline;
 }
 
 .disabled-homebar {
     font-size: 25px;
-    color: black;
+    color: #0000EE;
     padding-right: 16px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
 }
 
 .button {

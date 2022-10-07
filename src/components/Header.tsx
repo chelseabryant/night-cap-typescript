@@ -25,7 +25,9 @@ export default function Header() {
                             My Home Bar
                         </Link>
                     ) : (
-                        <p className="disabled-homebar">Sign in to use Homebar</p>
+                        <button className="disabled-homebar" onClick={() => setIsOpened(true)}>
+                            Sign in to use Homebar
+                        </button>
                     )}
                     {authenticated ? (
                         <button className="button" onClick={logout}>
@@ -33,7 +35,7 @@ export default function Header() {
                         </button>
                     ) : (
                         <button className="button" onClick={() => setIsOpened(true)}>
-                            Sign in/Sign up
+                            Sign in
                         </button>
                     )}
                     <Modal isOpened={isOpened} onClose={() => setIsOpened(false)}>

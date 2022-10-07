@@ -54,13 +54,13 @@ export default function CocktailInfo({ cocktail }: Props) {
             <img
                 src={cocktail.strDrinkThumb}
                 alt=""
-                className="cocktail-photo"
+                className="cocktail-image"
                 onClick={() => setIsOpened(true)}
             />
             <p key={cocktail.idDrink}>{cocktail.strDrink}</p>
             <Modal isOpened={isOpened} onClose={() => setIsOpened(false)}>
                 <h2>{cocktail.strDrink}</h2>
-                <img src={cocktail.strDrinkThumb} alt="" className="cocktail-photo" />
+                <img src={cocktail.strDrinkThumb} alt="" className="cocktail-image" />
                 <h4 className="ingredient-title">Ingredients</h4>
                 <div className="ingredients-measurements">
                     <ul>
